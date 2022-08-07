@@ -1,13 +1,15 @@
 import './App.css';
 import {CryptoPriceProvider} from "react-realtime-crypto-prices";
 import LivePrice from './components/LivePrice';
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
-            <CryptoPriceProvider>
-                <LivePrice />
-            </CryptoPriceProvider>
+        <Header />
+        <CryptoPriceProvider>
+          <LivePrice />
+        </CryptoPriceProvider>
     </div>
   );
 }
