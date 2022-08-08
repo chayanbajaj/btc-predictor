@@ -4,13 +4,18 @@ import { useState, useEffect  } from 'react';
 
 export default function LivePrice() {
   const price = useCryptoPrices(["btc"]);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(localStorage.getItem('Score'));
   const [priceAtClick, setPriceAtClick] = useState();
   const [buttonDisabling, setButtonDisabling] = useState(true);
   const [upClicked, setUpClicked] = useState(false);
   const onResetHandler = () => {
     setScore(0);
   }
+
+  useEffect(() => {
+    localStorage.setItem('Score', score);
+  },[score])
+
   const onUpHandler = () => {
     setUpClicked(true);
     setPriceAtClick(price.btc);
@@ -39,6 +44,10 @@ export default function LivePrice() {
   }
 
   useEffect(() => {
+    setScore(localStorage.getItem('Score'))
+    console.log(localStorage.getItem('Score'))
+  }, [])
+  useEffect(() => {
     price.btc && setButtonDisabling(false) 
   }, [price.btc])
   
@@ -47,7 +56,7 @@ export default function LivePrice() {
       <div className='player-score'>
         PLAYER'S SCORE:     
         <div className='actual-score'>
-          {score}
+          { score }
         </div>
       </div>
       <div className='live-price'>
