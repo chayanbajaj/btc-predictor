@@ -4,7 +4,7 @@ import { useState, useEffect  } from 'react';
 
 export default function LivePrice() {
   const price = useCryptoPrices(["btc"]);
-  const [score, setScore] = useState(localStorage.getItem('Score'));
+  const [score, setScore] = useState(parseInt(localStorage.getItem('Score')));
   const [priceAtClick, setPriceAtClick] = useState();
   const [buttonDisabling, setButtonDisabling] = useState(true);
   const [upClicked, setUpClicked] = useState(false);
