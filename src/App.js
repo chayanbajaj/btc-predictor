@@ -1,7 +1,8 @@
-import './App.css';
+import React from 'react'
 import {CryptoPriceProvider} from "react-realtime-crypto-prices";
 import LivePrice from './components/LivePrice';
 import Header from './components/Header';
+import './App.css';
 
 function App() {
   return (
