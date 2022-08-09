@@ -44,8 +44,7 @@ export default function LivePrice() {
   }
 
   useEffect(() => {
-    setScore(localStorage.getItem('Score'))
-    console.log(localStorage.getItem('Score'))
+    setScore(parseInt(localStorage.getItem('Score')))
   }, [])
   useEffect(() => {
     price.btc && setButtonDisabling(false) 
